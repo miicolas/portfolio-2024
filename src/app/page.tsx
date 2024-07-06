@@ -2,9 +2,12 @@ import React from "react";
 import { Avatar, AvatarImage } from "@/components/ui/avatar";
 import WordPullUp from "@/components/magicui/word-pull-up";
 import WorkExperienceCard from "@/components/cards/workExperienceCard";
-import Image from "next/image";
+import { workExperiences } from "@/lib/utils";
+
+
 
 export default function Home() {
+
   return (
     <main className="flex flex-col min-h-[100dvh] space-y-10">
       <section className="flex flex-col items-center justify-center space-y-4">
@@ -36,7 +39,22 @@ export default function Home() {
       </section>
       <section>
         <h2 className="text-2xl font-bold mb-4">My Work Experience</h2>
-        <WorkExperienceCard />
+        {workExperiences
+      .sort((a, b) => new Date(a.startDate).getTime() - new Date(b.startDate).getTime())
+          .map((workExperience) => {
+            const startDate = new Date(workExperience.startDate);
+            const endDate = new Date(workExperience.endDate);
+            const options: Intl.DateTimeFormatOptions = { year: 'numeric', month: 'numeric' };
+
+            return (
+              <WorkExperienceCard
+                key={workExperience.companyName}
+                {...workExperience}
+                startDateFormatted={startDate.toLocaleDateString('fr-FR', options)}
+                endDateFormatted={endDate.toLocaleDateString('fr-FR', options)}
+              />
+            );
+          }).reverse()}
       </section>
     </main>
   );
