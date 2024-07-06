@@ -2,6 +2,7 @@ import React from "react";
 import { Avatar, AvatarImage } from "@/components/ui/avatar";
 import WordPullUp from "@/components/magicui/word-pull-up";
 import WorkExperienceCard from "@/components/cards/workExperienceCard";
+import Image from "next/image";
 
 export default function Home() {
   return (
