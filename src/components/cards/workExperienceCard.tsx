@@ -7,6 +7,7 @@ type WorkExperienceCardProps = {
   startDateFormatted: string;
   endDateFormatted: string;
   description: string;
+  image: string;
 }
 
 export default function WorkExperienceCard({
@@ -15,18 +16,19 @@ export default function WorkExperienceCard({
   startDateFormatted,
   endDateFormatted,
   description,
+  image,
 }: WorkExperienceCardProps) {
   return (
-    <div className="flex gap-10 py-4">
+    <div className="flex gap-4 lg:gap-10 py-4">
       <div className="h-full">
         <Avatar className="w-12 h-12">
           <AvatarImage
-            src="/images/profil.webp"
+            src={image}
             alt="logo"
-            width={100}
-            height={100}
+            width={75}
+            height={75}
           />
-          <AvatarFallback className="bg-red-500">CN</AvatarFallback>
+          <AvatarFallback className="bg-neutral-300">{companyName.charAt(0)}</AvatarFallback>
         </Avatar>
       </div>
       
@@ -36,7 +38,7 @@ export default function WorkExperienceCard({
             <h3>{companyName}</h3>
             <p className="text-xs font-light">{jobTitle}</p>
           </div>
-          <div className="flex gap-4">
+          <div className="flex gap-4 text-sm font-light">
             <p>{startDateFormatted}</p>
             <p>{endDateFormatted}</p>
           </div>

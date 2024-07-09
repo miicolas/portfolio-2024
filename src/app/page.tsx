@@ -11,7 +11,10 @@ export default function Home() {
   return (
     <main className="flex flex-col min-h-[100dvh] space-y-10">
       <section className="flex flex-col items-center justify-center space-y-4">
-        <div className="flex items-center gap-4">
+        <div className="block lg:flex items-center gap-4">
+        <Avatar className="w-48 h-48 block lg:hidden mb-4 lg:mb-0">
+            <AvatarImage src="/images/profil.webp" alt="Nicolas Becharat" />
+          </Avatar>
           <div className="flex flex-col space-y-4">
             <div className="flex items-center gap-4">
               <WordPullUp
@@ -25,7 +28,7 @@ export default function Home() {
               sound.
             </p>
           </div>
-          <Avatar className="w-48 h-48">
+          <Avatar className="w-48 h-48 hidden lg:block">
             <AvatarImage src="/images/profil.webp" alt="Nicolas Becharat" />
           </Avatar>
         </div>
