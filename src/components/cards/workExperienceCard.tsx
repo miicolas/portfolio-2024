@@ -19,6 +19,7 @@ export default function WorkExperienceCard({
   image,
 }: WorkExperienceCardProps) {
   return (
+    <>
     <div className="flex gap-4 lg:gap-10 py-4">
       <div className="h-full">
         <Avatar className="w-12 h-12">
@@ -47,5 +48,6 @@ export default function WorkExperienceCard({
       </div>
      
     </div>
+    </>
   );
 }

@@ -10,7 +10,7 @@ export const { workExperiences } = {
   workExperiences: [
 
     {
-      image: "/images/iim.webp",
+      image: "/images/celest.webp",
       companyName: "ABR CELEST",
       jobTitle: "Creative Designer",
       startDate: new Date("2024-02"),
@@ -18,7 +18,7 @@ export const { workExperiences } = {
       description: "I was responsible for the design of social media posts and for the creation in the association ABR CELEST. I had the chance to work with clients and to understand their needs and to create a design that would meet the needs of the clients.",
     },
     {
-      image: "/images/iim.webp",
+      image: "/images/404_devinci.webp",
       companyName: "404 Devinci",
       jobTitle: "President",
       startDate: new Date("2024-06"),

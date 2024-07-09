@@ -1,10 +1,7 @@
-import React from "react";
 import { Avatar, AvatarImage } from "@/components/ui/avatar";
 import WordPullUp from "@/components/magicui/word-pull-up";
 import WorkExperienceCard from "@/components/cards/workExperienceCard";
 import { workExperiences } from "@/lib/utils";
-
-
 
 export default function Home() {
 
@@ -12,7 +9,7 @@ export default function Home() {
     <main className="flex flex-col min-h-[100dvh] space-y-10">
       <section className="flex flex-col items-center justify-center space-y-4">
         <div className="block lg:flex items-center gap-4">
-        <Avatar className="w-48 h-48 block lg:hidden mb-4 lg:mb-0">
+          <Avatar className="w-48 h-48 block lg:hidden mb-4 lg:mb-0">
             <AvatarImage src="/images/profil.webp" alt="Nicolas Becharat" />
           </Avatar>
           <div className="flex flex-col space-y-4">

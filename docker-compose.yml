@@ -1,8 +1,6 @@
-version: '3.8'
-
 services:
   nextjs:
-    image: docker.io/miicolas/nextjs-app-pnpm
+    build : .
     ports:
       - '3000:3000'
     environment:
@@ -13,6 +11,8 @@ services:
     depends_on:
       - mysql
 
+
+
   mysql:
     image: mysql:8.0
     ports:
@@ -20,5 +20,7 @@ services:
     environment:
       MYSQL_ROOT_PASSWORD: d396d4de9f319ee165ce
       MYSQL_DATABASE: apps
+      
+
 
 
