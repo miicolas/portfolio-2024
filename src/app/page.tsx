@@ -1,12 +1,21 @@
+'use client'
 import { Avatar, AvatarImage } from "@/components/ui/avatar";
 import WordPullUp from "@/components/magicui/word-pull-up";
 import ExperienceCard from "@/components/cards/experienceCard";
 import { workExperiences, educationExperiences } from "@/lib/utils";
+import { delay, motion } from "framer-motion";
 
 export default function Home() {
 
   return (
-    <main className="flex flex-col min-h-[100dvh] space-y-10">
+    <motion.main className="flex flex-col min-h-[100dvh] space-y-10" 
+    initial={{ opacity: 0, y: -100, filter: "blur(30px)", }}
+    animate={{ opacity: 1, y: 0, filter: "blur(0px)", duration: 1, ease: "easeInOut" }}
+    exit={{ opacity: 0, y: 200, filter: "blur(30px)" }} 
+    transition={{ duration: 1, type: "spring", stiffness: 110, damping: 15 }}
+    
+    
+    >
       <section className="flex flex-col items-center justify-center space-y-4">
         <div className="block lg:flex items-center gap-4">
           <Avatar className="w-48 h-48 block lg:hidden mb-4 lg:mb-0">
@@ -43,7 +52,7 @@ export default function Home() {
           .sort((a, b) => new Date(a.startDate).getTime() - new Date(b.startDate).getTime())
           .map((workExperience) => {
             const startDate = new Date(workExperience.startDate);
-            const endDate = workExperience.endDate ? new Date(workExperience.endDate) : "now";
+            const endDate = workExperience.endDate ? new Date(workExperience.endDate) : "present";
             const options: Intl.DateTimeFormatOptions = { year: 'numeric', month: 'numeric' };
 
             return (
@@ -51,7 +60,7 @@ export default function Home() {
                 key={workExperience.name_experience}
                 {...workExperience}
                 startDateFormatted={startDate.toLocaleDateString('fr-FR', options)}
-                endDateFormatted={endDate === "now" ? "now" : endDate.toLocaleDateString('fr-FR', options)}
+                endDateFormatted={endDate === "present" ? "present" : endDate.toLocaleDateString('fr-FR', options)}
               />
             );
           }).reverse()}
@@ -62,7 +71,7 @@ export default function Home() {
           .sort((a, b) => new Date(a.startDate).getTime() - new Date(b.startDate).getTime())
           .map((educationExperience) => {
             const startDate = new Date(educationExperience.startDate);
-            const endDate = educationExperience.endDate ? new Date(educationExperience.endDate) : "now";
+            const endDate = educationExperience.endDate ? new Date(educationExperience.endDate) : "present";
             const options: Intl.DateTimeFormatOptions = { year: 'numeric', month: 'numeric' };
 
             return (
@@ -70,11 +79,11 @@ export default function Home() {
                 key={educationExperience.name_experience}
                 {...educationExperience}
                 startDateFormatted={startDate.toLocaleDateString('fr-FR', options)}
-                endDateFormatted={endDate === "now" ? "now" : endDate.toLocaleDateString('fr-FR', options)}
+                endDateFormatted={endDate === "present" ? "present" : endDate.toLocaleDateString('fr-FR', options)}
               />
             );
           }).reverse()}
       </section>
-    </main>
+    </motion.main>
   );
 }
