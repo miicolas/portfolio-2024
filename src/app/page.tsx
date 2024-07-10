@@ -40,10 +40,10 @@ export default function Home() {
       <section>
         <h2 className="text-2xl font-bold mb-4">My Work Experience</h2>
         {workExperiences
-      .sort((a, b) => new Date(a.startDate).getTime() - new Date(b.startDate).getTime())
+          .sort((a, b) => new Date(a.startDate).getTime() - new Date(b.startDate).getTime())
           .map((workExperience) => {
             const startDate = new Date(workExperience.startDate);
-            const endDate = new Date(workExperience.endDate);
+            const endDate = workExperience.endDate ? new Date(workExperience.endDate) : "now";
             const options: Intl.DateTimeFormatOptions = { year: 'numeric', month: 'numeric' };
 
             return (
@@ -51,7 +51,7 @@ export default function Home() {
                 key={workExperience.companyName}
                 {...workExperience}
                 startDateFormatted={startDate.toLocaleDateString('fr-FR', options)}
-                endDateFormatted={endDate.toLocaleDateString('fr-FR', options)}
+                endDateFormatted={endDate === "now" ? "now" : endDate.toLocaleDateString('fr-FR', options)}
               />
             );
           }).reverse()}

@@ -14,7 +14,7 @@ export const { workExperiences } = {
       companyName: "ABR CELEST",
       jobTitle: "Creative Designer",
       startDate: new Date("2024-02"),
-      endDate: new Date("2025-06"),
+      endDate: null,
       description: "I was responsible for the design of social media posts and for the creation in the association ABR CELEST. I had the chance to work with clients and to understand their needs and to create a design that would meet the needs of the clients.",
     },
     {
@@ -22,7 +22,7 @@ export const { workExperiences } = {
       companyName: "404 Devinci",
       jobTitle: "President",
       startDate: new Date("2024-06"),
-      endDate: new Date("2025-06"),
+      endDate: null,
       description: "President of the association 404 Devinci which is an association that aims to help to learn web development and to learn web design by creating websites and web applications. We also work for the Pole Leonard de Vinci and the administration of the association.",
     },
     
@@ -31,7 +31,7 @@ export const { workExperiences } = {
       companyName: "IIM Digital School",
       jobTitle: "Bachelor Project Management",
       startDate: new Date("2023-09"),
-      endDate: new Date("2026-08"),
+      endDate: null,
       description: "Bachelor Project Management with the IIM Digital School in Paris suburbs. During my studies, I was able to learn about the basics of project management, development basics, and some frameworks in web development. I als o had the chance to work with some enterprises to understand the needs of the clients and to develop a solution that would meet the needs of the clients.",
     },
     {
