@@ -1,9 +1,9 @@
 import { Avatar, AvatarImage, AvatarFallback } from "../ui/avatar";
 
 
-type WorkExperienceCardProps = {
-  companyName: string;
-  jobTitle: string;
+type ExperienceCardProps = {
+  name_experience: string;
+  title: string;
   startDateFormatted: string;
   endDateFormatted: string;
   description: string;
@@ -11,13 +11,13 @@ type WorkExperienceCardProps = {
 }
 
 export default function WorkExperienceCard({
-  companyName,
-  jobTitle,
+  name_experience,
+  title,
   startDateFormatted,
   endDateFormatted,
   description,
   image,
-}: WorkExperienceCardProps) {
+}: ExperienceCardProps) {
   return (
     <>
     <div className="flex gap-4 lg:gap-10 py-4">
@@ -29,15 +29,15 @@ export default function WorkExperienceCard({
             width={75}
             height={75}
           />
-          <AvatarFallback className="bg-neutral-300">{companyName.charAt(0)}</AvatarFallback>
+          <AvatarFallback className="bg-neutral-300">{name_experience.charAt(0)}</AvatarFallback>
         </Avatar>
       </div>
       
       <div className="flex flex-col gap-4 w-full">
         <div className="flex items-center justify-between w-full">
           <div className="flex flex-col">
-            <h3>{companyName}</h3>
-            <p className="text-xs font-light">{jobTitle}</p>
+            <h3>{name_experience}</h3>
+            <p className="text-xs font-light">{title}</p>
           </div>
           <div className="flex gap-4 text-sm font-light">
             <p>{startDateFormatted}</p>

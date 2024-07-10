@@ -1,7 +1,7 @@
 import { Avatar, AvatarImage } from "@/components/ui/avatar";
 import WordPullUp from "@/components/magicui/word-pull-up";
-import WorkExperienceCard from "@/components/cards/workExperienceCard";
-import { workExperiences } from "@/lib/utils";
+import ExperienceCard from "@/components/cards/experienceCard";
+import { workExperiences, educationExperiences } from "@/lib/utils";
 
 export default function Home() {
 
@@ -47,9 +47,28 @@ export default function Home() {
             const options: Intl.DateTimeFormatOptions = { year: 'numeric', month: 'numeric' };
 
             return (
-              <WorkExperienceCard
-                key={workExperience.companyName}
+              <ExperienceCard
+                key={workExperience.name_experience}
                 {...workExperience}
+                startDateFormatted={startDate.toLocaleDateString('fr-FR', options)}
+                endDateFormatted={endDate === "now" ? "now" : endDate.toLocaleDateString('fr-FR', options)}
+              />
+            );
+          }).reverse()}
+      </section>
+      <section>
+        <h2 className="text-2xl font-bold mb-4">Education</h2>
+        {educationExperiences
+          .sort((a, b) => new Date(a.startDate).getTime() - new Date(b.startDate).getTime())
+          .map((educationExperience) => {
+            const startDate = new Date(educationExperience.startDate);
+            const endDate = educationExperience.endDate ? new Date(educationExperience.endDate) : "now";
+            const options: Intl.DateTimeFormatOptions = { year: 'numeric', month: 'numeric' };
+
+            return (
+              <ExperienceCard
+                key={educationExperience.name_experience}
+                {...educationExperience}
                 startDateFormatted={startDate.toLocaleDateString('fr-FR', options)}
                 endDateFormatted={endDate === "now" ? "now" : endDate.toLocaleDateString('fr-FR', options)}
               />
