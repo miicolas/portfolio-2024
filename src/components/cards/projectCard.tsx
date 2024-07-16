@@ -38,7 +38,7 @@ export default function ProjectCard({
             src={image}
             alt={name}
             width={400}
-            height={400}
+            height={1000}
             className="rounded-t-lg object-cover"
           />
         ) : (

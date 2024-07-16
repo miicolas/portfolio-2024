@@ -184,7 +184,7 @@ export default function Home() {
           <p className="text-lg font-light">
             Here are some of my latest projects that I have worked on.
           </p>
-          <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 mx-auto mt-4">
+          <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 mx-auto mt-4 h-full">
             {projects.map((project) => (
               <ProjectCard key={project.name} {...(project as any)} />
             ))}

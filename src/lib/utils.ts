@@ -100,7 +100,7 @@ export const projects = [
     name: "Harry Potter",
     description:
       "Harry Potter trading card game is a game that allows you to trade cards with other players.",
-    image: "/images/projects/learn404.png",
+    image: "/images/projects/harrypotter.png",
     date: "Jan 2023 - May 2023",
     skills: ["HTML", "CSS", "JavaScript", "Node.js", "Express", "Prisma"],
     website: false,
