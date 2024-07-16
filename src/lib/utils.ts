@@ -33,7 +33,7 @@ export const { educationExperiences } = {
     {
       image: "/images/iim.webp",
       name_experience: "IIM Digital School",
-      title: "Bachelor Project Management",
+      title: "Bachelor Project Management in Web Developement",
       startDate: new Date("2023-09"),
       endDate: null,
     },
