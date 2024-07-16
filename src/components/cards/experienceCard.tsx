@@ -15,8 +15,8 @@ export default function WorkExperienceCard({
   title,
   startDateFormatted,
   endDateFormatted,
-  description,
   image,
+  description,
 }: ExperienceCardProps) {
   return (
     <>
@@ -44,7 +44,7 @@ export default function WorkExperienceCard({
             <p>{endDateFormatted}</p>
           </div>
         </div>
-        <p className="text-sm font-light text-neutral-500">{description}</p>
+        {description && <p className="text-sm font-light">{description}</p>}
       </div>
      
     </div>
