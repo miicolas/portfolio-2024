@@ -1,0 +1,26 @@
+services:
+  nextjs:
+    build : .
+    ports:
+      - '3000:3000'
+    environment:
+      - MYSQL_HOST=158.178.205.33:27776
+      - MYSQL_USER=root
+      - MYSQL_PASSWORD=rootpassword
+      - MYSQL_DATABASE=mydatabase
+    depends_on:
+      - mysql
+
+
+
+  mysql:
+    image: mysql:8.0
+    ports:
+      - '3306:3306'
+    environment:
+      MYSQL_ROOT_PASSWORD: d396d4de9f319ee165ce
+      MYSQL_DATABASE: apps
+      
+
+
+
