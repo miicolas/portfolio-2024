@@ -244,7 +244,7 @@ export default function Home() {
         <h2 className="text-2xl font-bold mb-4">Contact</h2>
         <p className="font-light text-neutral-500 text-sm">
           You can contact me at{" "}
-          <a href="mailto:nicolas.becharat@gmail.com">nicolas.becharat@gmail.com</a>
+          <a href="mailto:pro@nicolas-becharat.com">pro@nicolas-becharat.com</a>
         </p>
       </section>
     </motion.main>
