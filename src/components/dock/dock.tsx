@@ -1,8 +1,12 @@
-'use client'
-import React from "react";
+"use client";
+import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import { CalendarIcon, HomeIcon, MailIcon, PencilIcon } from "lucide-react";
 import { motion } from "framer-motion";
+import {
+  LoginGithubButton,
+  LogoutButton,
+} from "@/components/buttons/Auth/AuthButton";
 
 import { cn } from "@/lib/utils";
 import { buttonVariants } from "@/components/ui/button";
@@ -14,7 +18,6 @@ import {
   TooltipTrigger,
 } from "@/components/ui/tooltip";
 import { Dock, DockIcon } from "@/components/magicui/dock";
-
 
 export type IconProps = React.HTMLAttributes<SVGElement>;
 
@@ -85,8 +88,8 @@ const DATA = {
         icon: Icons.x,
       },
       email: {
-        name: "Send Email",
-        url: "mailto:nicolas.becharat@gmail.com",
+        name: "Email",
+        url: "mailto:pro@nicolas-becharat.com",
         icon: Icons.email,
       },
     },
@@ -96,7 +99,10 @@ const DATA = {
 export default function DockDemo() {
   return (
     <TooltipProvider>
-      <Dock direction="middle" className="fixed left-1/2 -translate-x-1/2 bottom-10">
+      <Dock
+        direction="middle"
+        className="fixed left-1/2 -translate-x-1/2 bottom-10"
+      >
         {DATA.navbar.map((item) => (
           <DockIcon key={item.href}>
             <Tooltip>
@@ -105,7 +111,7 @@ export default function DockDemo() {
                   href={item.href}
                   className={cn(
                     buttonVariants({ variant: "ghost", size: "icon" }),
-                    "size-12 rounded-full",
+                    "size-12 rounded-full"
                   )}
                 >
                   <item.icon className="size-4" />
@@ -126,7 +132,7 @@ export default function DockDemo() {
                   href={social.url}
                   className={cn(
                     buttonVariants({ variant: "ghost", size: "icon" }),
-                    "size-12 rounded-full",
+                    "size-12 rounded-full"
                   )}
                 >
                   <social.icon className="size-4" />
@@ -138,10 +144,7 @@ export default function DockDemo() {
             </Tooltip>
           </DockIcon>
         ))}
-        
       </Dock>
-
-      </TooltipProvider>
-
+    </TooltipProvider>
   );
 }
