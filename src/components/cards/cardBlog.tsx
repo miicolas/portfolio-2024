@@ -1,13 +1,11 @@
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import getSession from "@/lib/session";
+import { Session, CardBlogProps } from "@/lib/types";
 
-type CardBlogProps = {
-  title: string;
-  description: string;
-  date: string;
-  slug: string;
-};
+
+
+
 
 export default async function CardBlog({
   title,
@@ -15,7 +13,7 @@ export default async function CardBlog({
   date,
   slug,
 }: CardBlogProps) {
-  const session = await getSession();
+  const session: Session = await getSession();
 
   return (
     <>

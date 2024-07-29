@@ -1,7 +1,8 @@
-import { auth } from "@/lib/auth"
+import { auth } from "@/lib/auth";
+import { Session } from "@/lib/types";
 
-export default async function getSession() {
-  const session = await auth()
-  
-  return session
+export default async function getSession(): Promise<Session> {
+  const session = await auth();
+
+  return session;
 }

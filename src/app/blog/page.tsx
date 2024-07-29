@@ -6,8 +6,6 @@ import Header from "@/components/layout/header";
 export default async function Blog() {
 
     const posts = await getPosts();
-
-    console.log(posts, "posts");
   return (
     <>
     <Header />
