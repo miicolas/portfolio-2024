@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import Dock from "@/components/dock/dock";
+import { Toaster } from "@/components/ui/sonner"
+
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -26,6 +28,8 @@ export default function RootLayout({
         <div className="min-h-screen max-w-2xl mx-auto py-12 sm:py-24 px-6">
           {children}
         </div>
+        <Toaster />
+
       </body>
     </html>
   );
