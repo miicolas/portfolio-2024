@@ -35,7 +35,7 @@ export default async function CardBlog({
         <Link href={`/blog/${slug}`}>
           <Button>Read More</Button>
         </Link>
-        {session.user.isAdmin && (
+        {session?.user?.isAdmin && (
           <Link href={`/blog/${slug}/edit`}>
             <Button>Edit</Button>
           </Link>
