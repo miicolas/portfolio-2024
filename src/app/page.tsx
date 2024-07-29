@@ -2,6 +2,7 @@
 import { Avatar, AvatarImage } from "@/components/ui/avatar";
 import WordPullUp from "@/components/magicui/word-pull-up";
 import ExperienceCard from "@/components/cards/experienceCard";
+import { auth } from "@/lib/auth";
 import {
   workExperiences,
   educationExperiences,
@@ -15,6 +16,8 @@ import ProjectCard from "@/components/cards/projectCard";
 import SideProjectCard from "@/components/cards/sideProjectCard";
 
 export default function Home() {
+
+
   return (
     <motion.main
       className="flex flex-col min-h-[100dvh] space-y-10"
