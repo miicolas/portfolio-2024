@@ -1,5 +1,6 @@
 import { type ClassValue, clsx } from "clsx";
 import { twMerge } from "tailwind-merge";
+import prisma from "@/lib/prisma";
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
@@ -159,3 +160,13 @@ export const sideProjects = [
     apiLink: "https://github.com/miicolas/ecoswing-api",
   },
 ];
+
+export const getPosts = async () => {
+    const posts = await prisma.posts.findMany({
+      where: {
+        isDraft: false,
+      },
+      
+    });
+    return posts;
+}
