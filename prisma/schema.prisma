@@ -76,7 +76,7 @@ model Posts {
   title String
   slug String
   description String
-  content String
+  content String @db.LongText
   isDraft Boolean @default(false)
   date String
   createdAt DateTime @default(now())

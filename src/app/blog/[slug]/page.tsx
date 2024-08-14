@@ -7,13 +7,13 @@ export default async function Post({ params }: { params: { slug: string } }) {
             slug,
         }
     })
-    const contentWithLineBreaks = post?.content.replace(/<br \/>/g, '\n').replace(/\n/g, '<br />'); 
+   
 
     return (
         <div>
             <h1>{post?.title}</h1>
             
-            <div dangerouslySetInnerHTML={{ __html: contentWithLineBreaks || "" }} />
+            <div dangerouslySetInnerHTML={{ __html: post?.content || "" }} />
             <p>{post?.date}</p>
             <p>{post?.isDraft}</p>
         </div>

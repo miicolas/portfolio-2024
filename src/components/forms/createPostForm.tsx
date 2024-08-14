@@ -5,6 +5,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { toast } from "sonner"
 import { useRouter } from "next/navigation";
+import RichTextEditor from "@/components/text-editor";
 
 
 import { Button } from "@/components/ui/button";
@@ -42,7 +43,6 @@ export function CreatePostForm() {
   const onSubmit = async (values: z.infer<typeof createPostSchema>) => {
     console.log(values, "values");
     const { title, description, content, slug, date, isDraft } = values;
-    const contentWithBr = content.replace(/\n/g, '<br />');
     console.log(title, description, content, slug, date, isDraft, "values");
 
     
@@ -54,7 +54,7 @@ export function CreatePostForm() {
             return (
             fetch('/api/post/createPost', {
                 method: 'POST',
-                body: JSON.stringify({ title, description, content: contentWithBr, slug, date, isDraft }),
+                body: JSON.stringify({ title, description, content, slug, date, isDraft }),
             })
             .then(res => res.json())
             .then(data => {
@@ -111,7 +111,7 @@ export function CreatePostForm() {
           render={({ field }) => (
             <FormItem>
               <FormLabel>Content</FormLabel>
-              <Textarea {...field} />
+              <RichTextEditor {...field} {...field} />
               <FormMessage {...field} />
             </FormItem>
           )}

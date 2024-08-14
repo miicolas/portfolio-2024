@@ -10,6 +10,9 @@ const config = {
 	],
   prefix: "",
   theme: {
+    fontFamily: {
+      "code": ["JetBrains Mono", "monospace"],
+    },
     container: {
       center: true,
       padding: "2rem",
