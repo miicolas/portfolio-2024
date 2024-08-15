@@ -8,8 +8,6 @@ import { Session } from "@/lib/types";
 export default async function Header() {
   const session: Session = await getSession();
 
-  console.log(session, "session");
-
   return (
     <header className="flex flex-row justify-between items-center">
       <h1 className="text-2xl font-bold">Weekly Journal Nicolas'</h1>
