@@ -13,4 +13,6 @@ export type CardBlogProps = {
   description: string;
   date: string;
   slug: string;
+  isDraft: boolean;
+  isAdmin: boolean;
 };
