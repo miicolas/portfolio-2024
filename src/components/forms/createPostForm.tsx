@@ -1,12 +1,11 @@
 "use client";
 
-import { useForm } from "react-hook-form";
+import { set, useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
-import { toast } from "sonner"
+import { toast } from "sonner";
 import { useRouter } from "next/navigation";
 import RichTextEditor from "@/components/text-editor";
-
 
 import { Button } from "@/components/ui/button";
 import {
@@ -32,7 +31,7 @@ const createPostSchema = z.object({
 });
 
 export function CreatePostForm() {
-    const router = useRouter();
+  const router = useRouter();
   const form = useForm<z.infer<typeof createPostSchema>>({
     resolver: zodResolver(createPostSchema),
     defaultValues: {
@@ -45,40 +44,39 @@ export function CreatePostForm() {
     const { title, description, content, slug, date, isDraft } = values;
     console.log(title, description, content, slug, date, isDraft, "values");
 
-    
-   
-
-
     try {
-        const CreatePost = () => {
-            return (
-            fetch('/api/post/createPost', {
-                method: 'POST',
-                body: JSON.stringify({ title, description, content, slug, date, isDraft }),
-            })
-            .then(res => res.json())
-            .then(data => {
-                console.log(data);
-            })
-        )
-        }
+      const CreatePost = async () => {
+        return fetch("/api/post/createPost", {
+          method: "POST",
+          body: JSON.stringify({
+            title,
+            description,
+            content,
+            slug,
+            date,
+            isDraft,
+          }),
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            console.log(data);
+          });
+      };
 
-    toast.promise(
-        CreatePost(),
-        {
-            loading: "Creating post...",
-            success: "Post created successfully!",
-            error: "Failed to create post!"
-        }
-    )
+      toast.promise(CreatePost(), {
+        loading: "Creating post...",
+        success: "Post created successfully!",
+        error: "Failed to create post!",
+      });
     } catch (error) {
-        console.error(error);
+      console.error(error);
     } finally {
-        router.push('/blog')
+      setTimeout(() => {
+      router.push("/blog");
+      router.refresh();
+      }, 200);
     }
-
   };
-
 
   return (
     <Form {...form}>
