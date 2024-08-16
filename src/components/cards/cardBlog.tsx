@@ -4,8 +4,7 @@ import Link from "next/link";
 import { CardBlogProps } from "@/lib/types";
 import { Edit, Trash } from "lucide-react";
 import { toast } from "sonner";
-import { useRouter } from 'next/navigation'
-
+import { useRouter } from "next/navigation";
 
 export default async function CardBlog({
   title,
@@ -16,25 +15,28 @@ export default async function CardBlog({
 }: CardBlogProps) {
   const router = useRouter();
   const handleDelete = async () => {
-    const deletePost = () => {
-      return fetch(`/api/post/deletePost/${slug}`, {
-        method: "GET",
-      });
-    };
     try {
-    toast.promise(deletePost(), {
-        loading: "Deleting...",
-        success: "Post deleted successfully",
-        error: "Error deleting post",
-      });
+      const deletePost = async () => {
+        const response = await fetch(`/api/post/deletePost/${slug}`, {
+          method: "GET",
+        });
 
-    Promise.resolve(deletePost());
-      
+        const data = await response.json();
+
+        if (response.ok) {
+          toast.success(data.message);
+        } else {
+          toast.error(data.message);
+        }
+
+        return data;
+      };
+
+      await deletePost();
     } catch (error) {
       console.error(error);
-    }
-    finally {
-        router.refresh();
+    } finally {
+      router.refresh();
     }
   };
 
