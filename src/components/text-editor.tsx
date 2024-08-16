@@ -25,7 +25,6 @@ const RichTextEditor = ({
 
 
 
-  const limit = 100;
 
   const editor = useEditor({
     editorProps: {
@@ -66,9 +65,7 @@ const RichTextEditor = ({
         autolink: true,
         defaultProtocol: 'https',
       }),
-      CharacterCount.configure({
-        limit,
-      }),
+      CharacterCount.configure(),
       CodeBlock.configure({
         HTMLAttributes: {
           class: "border-gray-300 rounded-md p-2 bg-gray-500 text-white font-code",
@@ -113,45 +110,16 @@ const RichTextEditor = ({
     }
   }, [editor])
 
-  const percentage = editor
-    ? Math.round((100 / limit) * editor.storage.characterCount.characters())
-    : 0
+
 
   return (
     <>
       <EditorContent editor={editor} />
       {editor ? <RichTextEditorToolbar editor={editor} setLink={setLink} addImage={addImage} /> : null}
-      <div className={`flex flex-row items-center gap-2 text-sms ${editor?.storage.characterCount.characters() === limit ? 'text-red-500' : 'text-gray-500'}`}>
-        <svg
-          height="10"
-          width="10"
-          viewBox="0 0 10 10"
-        >
-          <circle
-            r="5"
-            cx="5"
-            cy="5"
-            fill="#e9ecef"
-          />
-          <circle
-            r="2.5"
-            cx="5"
-            cy="5"
-            fill="transparent"
-            stroke="currentColor"
-            strokeWidth="5"
-            strokeDasharray={`calc(${percentage} * 31.4 / 100) 31.4`}
-            transform="rotate(-90) translate(-10)"
-          />
-          <circle
-            r="3"
-            cx="5"
-            cy="5"
-            fill="white"
-          />
-        </svg>
+      <div className={`flex flex-row items-center gap-2 text-sms text-gray-500`}>
+        
 
-        {editor?.storage.characterCount.characters()} / {limit} characters
+        {editor?.storage.characterCount.characters()} characters
         
       </div>
     </>

@@ -14,6 +14,14 @@ export default async function CardBlog({
   isAdmin,
 }: CardBlogProps) {
   const router = useRouter();
+
+  const descriptionLength = description.length;
+
+  const descriptionLimit = 50;
+
+  const limitedDescription = description.slice(0, descriptionLimit);
+  
+
   const handleDelete = async () => {
     try {
       const deletePost = async () => {
@@ -42,9 +50,9 @@ export default async function CardBlog({
 
   return (
     <>
-      <div className="border border-gray-200 p-4 hover:shadow-lg transition-all duration-300 ease-out h-40 rounded-lg flex flex-col justify-between">
+      <div className="border border-gray-200 p-4 hover:shadow-lg transition-all duration-300 ease-out  rounded-lg flex flex-col justify-between">
         <div>
-          <div className="flex items-center justify-between">
+          <div className="flex items-center justify-between gap-4">
             <div>
               <h3 className="text-xl font-bold">{title}</h3>
             </div>
@@ -52,8 +60,8 @@ export default async function CardBlog({
               <p className="text-gray-500">{date}</p>
             </div>
           </div>
-          <div>
-            <p className="text-gray-500">{description}</p>
+          <div className="my-2">
+            <p className="text-gray-500">{limitedDescription}...</p>
           </div>
         </div>
         <div>
