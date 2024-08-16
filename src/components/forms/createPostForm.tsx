@@ -45,9 +45,12 @@ export function CreatePostForm() {
     console.log(title, description, content, slug, date, isDraft, "values");
 
     try {
-      const CreatePost = async () => {
-        return fetch("/api/post/createPost", {
+      const createPost = async () => {
+        const response = await fetch("/api/post/createPost", {
           method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
           body: JSON.stringify({
             title,
             description,
@@ -56,25 +59,25 @@ export function CreatePostForm() {
             date,
             isDraft,
           }),
-        })
-          .then((res) => res.json())
-          .then((data) => {
-            console.log(data);
-          });
+        });
+
+        const data = await response.json();
+        
+        if (response.ok) {
+          toast.success("Post created successfully");
+        } else {
+          toast.error("Post creation failed");
+        }
+
+        return data;
       };
 
-      toast.promise(CreatePost(), {
-        loading: "Creating post...",
-        success: "Post created successfully!",
-        error: "Failed to create post!",
-      });
+      await createPost();
     } catch (error) {
       console.error(error);
     } finally {
-      setTimeout(() => {
       router.push("/blog");
       router.refresh();
-      }, 200);
     }
   };
 
