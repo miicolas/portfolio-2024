@@ -18,14 +18,16 @@ export default async function Post({ params }: { params: { slug: string } }) {
       <main className="py-5">
         <Button asChild>
           <Link href="/blog" className="flex items-center gap-2">
-          
-          <ArrowLeft />
-          Back to Blog</Link>
+            <ArrowLeft />
+            Back to Blog
+          </Link>
         </Button>
         <section className="py-10">
-          <h1>{post?.title}</h1>
-          <div dangerouslySetInnerHTML={{ __html: post?.content || "" }} />
-          <p>{post?.date}</p>
+          <h1 className="text-2xl font-bold">{post?.title}</h1>
+          <div dangerouslySetInnerHTML={{ __html: post?.content || "" }} className="mt-5" />
+          <p className="text-sm text-gray-500 mt-5" >
+            {post?.date}
+          </p>
           <p>{post?.isDraft}</p>
         </section>
       </main>
