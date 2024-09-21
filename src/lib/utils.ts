@@ -113,6 +113,16 @@ export const projects = [
 
 export const sideProjects = [
   {
+    name: "Converter Money",
+    type: "Web Development",
+    description:
+      "Converter Money is a website that allows you to convert money from one currency to another. It's a project that Eric and I made with JavaScript, HTML, and Tailwind CSS.",
+    startDate: new Date("2024-09"),
+    endDate: new Date("2024-09"),
+    liveLink: "https://converter-money.nicolas-becharat.com/",
+    gitHubLink: "https://github.com/miicolas/converter-money",
+  },
+  {
     name: "npmBytes",
     type: "Web Development",
     description:
@@ -148,7 +158,7 @@ export const sideProjects = [
     endDate: new Date("2023-10"),
     gitHubLink: "https://github.com/miicolas/AlgorithmieJS-IIM-B1",
   },
- 
+
   {
     name: "Ecoswing",
     type: "Hackathon - Web Development",
@@ -162,11 +172,22 @@ export const sideProjects = [
 ];
 
 export const getPosts = async () => {
-    const posts = await prisma.posts.findMany({
-      where: {
-        isDraft: false,
-      },
-      
-    });
-    return posts;
-}
+  const posts = await prisma.posts.findMany({
+    where: {
+      isDraft: false,
+    },
+    orderBy: {
+      updatedAt: "desc",
+    },
+  });
+  return posts;
+};
+
+export const getPostsDraft = async () => {
+  const posts = await prisma.posts.findMany({
+    where: {
+      isDraft: true,
+    },
+  });
+  return posts;
+};

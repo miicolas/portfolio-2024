@@ -31,6 +31,7 @@ export default async function Post({ params }: { params: { slug: string } }) {
           <p>{post?.isDraft}</p>
         </section>
       </main>
+      
     </>
   );
 }

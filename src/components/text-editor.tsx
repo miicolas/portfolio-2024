@@ -1,18 +1,46 @@
 "use client";
 
-
-import { useEditor, EditorContent, type Editor } from "@tiptap/react";
-import StarterKit from "@tiptap/starter-kit";
-import { Bold, Strikethrough, Italic, List, ListOrdered, TextQuote, Code, ArrowBigLeft, Link as LinkIcon,ImagePlus } from "lucide-react";
-import { Toggle } from "@/components/ui/toggle";
 import { Separator } from "@/components/ui/separator";
-import HardBreak from '@tiptap/extension-hard-break';
-import CharacterCount from '@tiptap/extension-character-count';
-import CodeBlock from '@tiptap/extension-code-block'
-import Image from '@tiptap/extension-image'
+import { Toggle } from "@/components/ui/toggle";
+import CharacterCount from "@tiptap/extension-character-count";
+import Highlight from '@tiptap/extension-highlight';
+import Image from "@tiptap/extension-image";
+import Underline from '@tiptap/extension-underline';
+import {
+  EditorContent,
+  ReactNodeViewRenderer,
+  useEditor,
+  type Editor,
+} from "@tiptap/react";
+import StarterKit from "@tiptap/starter-kit";
 
-import Link from '@tiptap/extension-link';
-import React, { useCallback } from 'react';
+import {
+  ArrowBigLeft,
+  Bold,
+  Code,
+  Code2,
+  Heading1,
+  Heading2,
+  Heading3,
+  Highlighter,
+  ImagePlus,
+  Italic,
+  Link as LinkIcon,
+  List,
+  ListOrdered,
+  Strikethrough,
+  Text,
+  TextQuote,
+  UnderlineIcon
+} from "lucide-react";
+import { useEffect } from "react";
+
+
+
+
+
+import Link from "@tiptap/extension-link";
+import { useCallback } from "react";
 
 
 const RichTextEditor = ({
@@ -23,15 +51,14 @@ const RichTextEditor = ({
   onChange: (value: string) => void;
 }) => {
 
-
-
-
   const editor = useEditor({
     editorProps: {
       attributes: {
-        class: "min-h-[150px] max-h-[150px] w-full rounded-md rounded-br-none rounded-bl-none border border-input bg-transparent px-3 py-2 border-b-0 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none disabled:cursor-not-allowed disabled:opacity-50 overflow-auto",
+        class:
+          "h-[50vh] lg:h-[80vh] w-full rounded-md rounded-br-none rounded-bl-none border border-input bg-transparent px-3 py-2 border-b-0 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none disabled:cursor-not-allowed disabled:opacity-50 overflow-auto",
       },
     },
+    immediatelyRender: false,
     extensions: [
       StarterKit.configure({
         orderedList: {
@@ -44,91 +71,118 @@ const RichTextEditor = ({
             class: "list-disc pl-4",
           },
         },
-        blockquote: {
+        paragraph: {
           HTMLAttributes: {
-            class: "pl-4 border-l-4 border-accent border-gray-300",
+            class: "mb-3 text-base leading-7",
           },
         },
-        
-        
-      }),
-      HardBreak.configure({
-        HTMLAttributes: {
-          class: "mb-2",
+        hardBreak: {
+          HTMLAttributes: {
+            class: "mb-0",
+          },
         },
+        blockquote: {
+          HTMLAttributes: {
+            class: "border-l-4 border-gray-300 pl-4",
+          },
+        },
+        codeBlock: false
       }),
+      Underline,
+      Highlight,
       Link.configure({
         HTMLAttributes: {
           class: "text-blue-500",
+          target: "_blank",
         },
         openOnClick: false,
         autolink: true,
-        defaultProtocol: 'https',
-      }),
-      CharacterCount.configure(),
-      CodeBlock.configure({
-        HTMLAttributes: {
-          class: "border-gray-300 rounded-md p-2 bg-gray-500 text-white font-code",
-        },
+        defaultProtocol: "https",
       }),
       Image.configure({
         HTMLAttributes: {
           class: "rounded-md",
         },
       }),
+      CharacterCount.configure(), 
     ],
-    content: value, // Set the initial content with the provided value
+    content: value,
     onUpdate: ({ editor }) => {
-      onChange(editor.getHTML()); // Call the onChange callback with the updated HTML content
+      onChange(editor.getHTML());
     },
   });
 
   const setLink = useCallback(() => {
-    const previousUrl = editor?.getAttributes('link').href;
-    const url = window.prompt('URL', previousUrl);
+    const previousUrl = editor?.getAttributes("link").href;
+    const url = window.prompt("URL", previousUrl);
 
-    // cancelled
     if (url === null) {
       return;
     }
 
-    // empty
-    if (url === '') {
-      editor?.chain().focus().extendMarkRange('link').unsetLink().run();
+    if (url === "") {
+      editor?.chain().focus().extendMarkRange("link").unsetLink().run();
       return;
     }
 
-    // update link
-    editor?.chain().focus().extendMarkRange('link').setLink({ href: url }).run();
+    editor
+      ?.chain()
+      .focus()
+      .extendMarkRange("link")
+      .setLink({ href: url })
+      .run();
   }, [editor]);
 
   const addImage = useCallback(() => {
-    const url = window.prompt('URL')
+    const url = window.prompt("URL");
 
     if (url) {
-      editor?.chain().focus().setImage({ src: url }).run()
+      editor?.chain().focus().setImage({ src: url }).run();
     }
-  }, [editor])
+  }, [editor]);
 
+  useEffect(() => {
+    const breakLine = (e: KeyboardEvent) => {
+      if (e.key === "Enter" && e.shiftKey) {
+
+        e.preventDefault();
+        editor?.chain().focus().setHardBreak().run();
+      }
+    };
+    document.addEventListener("keydown", breakLine);
+
+    return () => document.removeEventListener("keydown", breakLine);
+  }, [editor]);
 
 
   return (
     <>
       <EditorContent editor={editor} />
-      {editor ? <RichTextEditorToolbar editor={editor} setLink={setLink} addImage={addImage} /> : null}
-      <div className={`flex flex-row items-center gap-2 text-sms text-gray-500`}>
-        
-
-        {editor?.storage.characterCount.characters()} characters
-        
+      {editor ? (
+        <RichTextEditorToolbar
+          editor={editor}
+          setLink={setLink}
+          addImage={addImage}
+        />
+      ) : null}
+      <div className={`flex flex-row items-center gap-2 text-sm`}>
+        {editor?.storage.characterCount.characters()} caractères
       </div>
     </>
   );
 };
 
-const RichTextEditorToolbar = ({ editor, setLink, addImage }: { editor: Editor, setLink: () => void, addImage: () => void }) => {
+const RichTextEditorToolbar = ({
+  editor,
+  setLink,
+  addImage,
+}: {
+  editor: Editor;
+  setLink: () => void;
+  addImage: () => void;
+}) => {
   return (
-    <div className="border border-input bg-transparent rounded-br-md rounded-bl-md p-1 flex flex-row items-center gap-1">
+    <div className="border border-input bg-transparent rounded-br-md rounded-bl-md p-1 flex flex-row items-center gap-1 flex-wrap">
       <Toggle
         size="sm"
         pressed={editor.isActive("bold")}
@@ -150,6 +204,7 @@ const RichTextEditorToolbar = ({ editor, setLink, addImage }: { editor: Editor, 
       >
         <Strikethrough className="h-4 w-4" />
       </Toggle>
+
       <Separator orientation="vertical" className="w-[1px] h-8" />
       <Toggle
         size="sm"
@@ -169,6 +224,7 @@ const RichTextEditorToolbar = ({ editor, setLink, addImage }: { editor: Editor, 
         size="sm"
         pressed={editor.isActive("blockquote")}
         onPressedChange={() => editor.chain().focus().toggleBlockquote().run()}
+        className={editor.isActive('blockquote') ? 'is-active' : ''}
       >
         <TextQuote className="h-4 w-4" />
       </Toggle>
@@ -179,6 +235,13 @@ const RichTextEditorToolbar = ({ editor, setLink, addImage }: { editor: Editor, 
       >
         <Code className="h-4 w-4" />
       </Toggle>
+      <Toggle 
+        size="sm"
+        pressed={editor.isActive("code")} 
+        onPressedChange={() => editor.chain().focus().toggleCode().run()}
+      >
+        <Code2 className="h-4 w-4" />
+      </Toggle>
       <Toggle
         size="sm"
         pressed={editor.isActive("hardBreak")}
@@ -186,6 +249,13 @@ const RichTextEditorToolbar = ({ editor, setLink, addImage }: { editor: Editor, 
       >
         <ArrowBigLeft className="h-4 w-4" />
       </Toggle>
+      <Toggle
+        size="sm"
+        pressed={editor.isActive("paragraph")}
+        onPressedChange={() => editor.chain().focus().setParagraph().run()}
+      >
+        <Text className="h-4 w-4" />
+      </Toggle> 
       <Toggle
         size="sm"
         pressed={editor.isActive("link")}
@@ -199,6 +269,37 @@ const RichTextEditorToolbar = ({ editor, setLink, addImage }: { editor: Editor, 
         onPressedChange={addImage}
       >
         <ImagePlus className="h-4 w-4" />
+      </Toggle>
+      <Separator orientation="vertical" className="w-[1px] h-8" />
+      <Toggle
+        size="sm"
+        pressed={editor.isActive("heading", { level: 1 })}
+        onPressedChange={() =>
+          editor.chain().focus().toggleHeading({ level: 1 }).run()
+        }
+        className={editor.isActive("heading", { level: 1 }) ? "is-active" : ""}
+      >
+        <Heading1 className="h-4 w-4" />
+      </Toggle>
+      <Toggle
+        size="sm"
+        pressed={editor.isActive("heading", { level: 2 })}
+        onPressedChange={() =>
+          editor.chain().focus().toggleHeading({ level: 2 }).run()
+        }
+        className={editor.isActive("heading", { level: 2 }) ? "is-active" : ""}
+      >
+        <Heading2 className="h-4 w-4" />
+      </Toggle>
+      <Toggle
+        size="sm"
+        pressed={editor.isActive("heading", { level: 3 })}
+        onPressedChange={() =>
+          editor.chain().focus().toggleHeading({ level: 3 }).run()
+        }
+        className={editor.isActive("heading", { level: 3 }) ? "is-active" : ""}
+      >
+        <Heading3 className="h-4 w-4" />
       </Toggle>
     </div>
   );
