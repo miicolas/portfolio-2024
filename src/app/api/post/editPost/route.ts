@@ -15,28 +15,33 @@ export async function POST(req: NextRequest) {
   }
 
   try {
-    const id_post = await prisma.posts.findFirst({
-      where: {
-        slug,
-      },
-    });
+    await prisma.$transaction(async (tx) => {
+      const id_post = await prisma.posts.findFirst({
+        where: {
+          slug,
+        },
+      });
 
-    if (!id_post) {
-      return NextResponse.json({ message: "Post not found!" }, { status: 404 });
-    }
+      if (!id_post) {
+        return NextResponse.json(
+          { message: "Post not found!" },
+          { status: 404 }
+        );
+      }
 
-    await prisma.posts.update({
-      where: {
-        id: id_post.id,
-      },
-      data: {
-        title,
-        description,
-        slug,
-        date,
-        content,
-        isDraft,
-      },
+      await prisma.posts.update({
+        where: {
+          id: id_post.id,
+        },
+        data: {
+          title,
+          description,
+          slug,
+          date,
+          content,
+          isDraft,
+        },
+      });
     });
 
     return NextResponse.json(

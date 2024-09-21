@@ -53,12 +53,18 @@ importers:
       '@tiptap/extension-hard-break':
         specifier: ^2.5.7
         version: 2.5.7(@tiptap/core@2.5.7(@tiptap/pm@2.5.7))
+      '@tiptap/extension-highlight':
+        specifier: ^2.6.6
+        version: 2.6.6(@tiptap/core@2.5.7(@tiptap/pm@2.5.7))
       '@tiptap/extension-image':
         specifier: ^2.5.8
         version: 2.5.8(@tiptap/core@2.5.7(@tiptap/pm@2.5.7))
       '@tiptap/extension-link':
         specifier: ^2.5.7
         version: 2.5.7(@tiptap/core@2.5.7(@tiptap/pm@2.5.7))(@tiptap/pm@2.5.7)
+      '@tiptap/extension-underline':
+        specifier: ^2.6.6
+        version: 2.6.6(@tiptap/core@2.5.7(@tiptap/pm@2.5.7))
       '@tiptap/pm':
         specifier: ^2.5.7
         version: 2.5.7
@@ -763,6 +769,11 @@ packages:
     peerDependencies:
       '@tiptap/core': ^2.5.7
 
+  '@tiptap/extension-highlight@2.6.6':
+    resolution: {integrity: sha512-Z02AYWm1AJAfhmfT4fGCI3YitijF4uNu+eiuq7OxhCiVf9IYaq8xlH2YMxa09QvMUo70ovklxk97+vQUUHeqfQ==}
+    peerDependencies:
+      '@tiptap/core': ^2.6.6
+
   '@tiptap/extension-history@2.5.7':
     resolution: {integrity: sha512-rsCE+pIM2sdcok4uJdq/Z4XK9P4e+2vmzxPadIgOIuXM3z0kYbOVhIpwgyrS5Z9aTE3/TQq5c8/tHP97qwepug==}
     peerDependencies:
@@ -815,6 +826,11 @@ packages:
     resolution: {integrity: sha512-vukhh2K/MsaIIs/UzIAwp44IVxTHPJcAhSsDnmJd4iPlkpjLt1eph77dfxv5awq78bj6mGvnCM0/0F6fW1C6/w==}
     peerDependencies:
       '@tiptap/core': ^2.5.7
+
+  '@tiptap/extension-underline@2.6.6':
+    resolution: {integrity: sha512-3A4HqsDM/AFb2VaeWACpGexjgI257kz0yU4jNV8uyydDR2KhqeinuEnoSoOmx9T3pL006TWfPg4vaQYPO3qvrQ==}
+    peerDependencies:
+      '@tiptap/core': ^2.6.6
 
   '@tiptap/pm@2.5.7':
     resolution: {integrity: sha512-4Eb4vA4e4vesBAUmZgx+n3xjgJ58uRKKtnhFDJ3Gg+dfpXvtF8FcEwSIjHJsTlNJ8mSrzX/I7S157qPc5wZXVw==}
@@ -3109,6 +3125,10 @@ snapshots:
     dependencies:
       '@tiptap/core': 2.5.7(@tiptap/pm@2.5.7)
 
+  '@tiptap/extension-highlight@2.6.6(@tiptap/core@2.5.7(@tiptap/pm@2.5.7))':
+    dependencies:
+      '@tiptap/core': 2.5.7(@tiptap/pm@2.5.7)
+
   '@tiptap/extension-history@2.5.7(@tiptap/core@2.5.7(@tiptap/pm@2.5.7))(@tiptap/pm@2.5.7)':
     dependencies:
       '@tiptap/core': 2.5.7(@tiptap/pm@2.5.7)
@@ -3150,6 +3170,10 @@ snapshots:
       '@tiptap/core': 2.5.7(@tiptap/pm@2.5.7)
 
   '@tiptap/extension-text@2.5.7(@tiptap/core@2.5.7(@tiptap/pm@2.5.7))':
+    dependencies:
+      '@tiptap/core': 2.5.7(@tiptap/pm@2.5.7)
+
+  '@tiptap/extension-underline@2.6.6(@tiptap/core@2.5.7(@tiptap/pm@2.5.7))':
     dependencies:
       '@tiptap/core': 2.5.7(@tiptap/pm@2.5.7)
 

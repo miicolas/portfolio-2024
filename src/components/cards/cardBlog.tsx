@@ -12,12 +12,11 @@ export default async function CardBlog({
   date,
   slug,
   isAdmin,
+  isDraft,
 }: CardBlogProps) {
   const router = useRouter();
 
-  const descriptionLength = description.length;
-
-  const descriptionLimit = 50;
+  const descriptionLimit = 75;
 
   const limitedDescription = description.slice(0, descriptionLimit);
   
@@ -50,24 +49,24 @@ export default async function CardBlog({
 
   return (
     <>
-      <div className="border border-gray-200 p-4 hover:shadow-lg transition-all duration-300 ease-out  rounded-lg flex flex-col justify-between">
+      <div className={`border p-4 hover:shadow-lg transition-all duration-300 ease-out  rounded-lg flex flex-col justify-between ${isDraft ? "border-neutral-400" : "border-neutral-200"}`}>
         <div>
-          <div className="flex items-center justify-between gap-4">
+          <div className="flex items-start justify-between gap-4">
             <div>
-              <h3 className="text-xl font-bold">{title}</h3>
+              <h3 className="text-xl font-normal">{title}</h3>
             </div>
             <div>
-              <p className="text-gray-500">{date}</p>
+              <p className="text-neutral-500 text-xs font-light">{date}</p>
             </div>
           </div>
           <div className="my-2">
-            <p className="text-gray-500">{limitedDescription}...</p>
+            <p className="text-neutral-500 text-xs font-light">{limitedDescription}...</p>
           </div>
         </div>
         <div>
           <div className="flex gap-2">
             <Link href={`/blog/${slug}`}>
-              <Button variant={"default"}>Read More</Button>
+              <Button variant={"default"} className="text-xs">Read More</Button>
             </Link>
             {isAdmin && (
               <div className="flex gap-2">
