@@ -92,15 +92,37 @@ export const projects = [
       "Prisma",
       "Figma",
     ],
-    website: true,
-    github: false,
-    websiteurl: "https://learn404.com",
-    githuburl: null,
+    website: false,
+    github: true,
+    websiteurl: null,
+    githuburl: "https://github.com/learn404/Learn404",
   },
+  {
+    name: "Learn404",
+    description: "Learn404 is a website that helps to learn web development. ",
+    image: "/images/projects/learn404.png",
+    date: "Jan 2024 - Present",
+    skills: [
+      "React",
+      "Next.js",
+      "TypeScript",
+      "Tailwind CSS",
+      "Prisma",
+      "Figma",
+    ],
+    website: true,
+    github: true,
+    websiteurl: 'https://celest.404devinci.fr/',
+    githuburl: "https://github.com/La-404-Devinci/advent-daily-frontend",
+  },
+
+];
+
+export const sideProjects = [
   {
     name: "Harry Potter",
     description:
-      "Harry Potter trading card game is a game that allows you to trade cards with other players.",
+        "Harry Potter trading card game is a game that allows you to trade cards with other players.",
     image: "/images/projects/harrypotter.png",
     date: "Jan 2023 - May 2023",
     skills: ["HTML", "CSS", "JavaScript", "Node.js", "Express", "Prisma"],
@@ -109,9 +131,6 @@ export const projects = [
     websiteurl: null,
     githuburl: "https://github.com/miicolas/CDI-HarryPotter",
   },
-];
-
-export const sideProjects = [
   {
     name: "Converter Money",
     type: "Web Development",
