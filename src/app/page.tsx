@@ -208,7 +208,7 @@ export default function Home() {
           </p>
           <div className="flex flex-col gap-4 mt-4">
             {sideProjects
-              .sort((a, b) => {
+              .sort((a, b ) => {
                 if (new Date(b.startDate).getTime() === new Date(a.startDate).getTime()) {
                   return new Date(b.endDate).getTime() - new Date(a.endDate).getTime();
                 }

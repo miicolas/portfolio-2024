@@ -98,22 +98,22 @@ export const projects = [
     githuburl: "https://github.com/learn404/Learn404",
   },
   {
-    name: "Learn404",
-    description: "Learn404 is a website that helps to learn web development. ",
-    image: "/images/projects/learn404.png",
-    date: "Jan 2024 - Present",
+    name: "Advent Calendar",
+    description: "Le calendrier de l'avent de la 404 Devinci qui permet de découvrir chaque jour une nouvelle surprise et de participer à une compétition dans l'université",
+    image: "/images/projects/404-cova.png",
+    date: "Nov 2024 - Dec 2024",
     skills: [
       "React",
-      "Next.js",
-      "TypeScript",
       "Tailwind CSS",
-      "Prisma",
+      "Node.js",
+      "Express",
+      "Redis",
       "Figma",
     ],
     website: true,
     github: true,
     websiteurl: 'https://celest.404devinci.fr/',
-    githuburl: "https://github.com/La-404-Devinci/advent-daily-frontend",
+    githuburl: 'https://github.com/La-404-Devinci/advent-daily-frontend',
   },
 
 ];
@@ -121,15 +121,12 @@ export const projects = [
 export const sideProjects = [
   {
     name: "Harry Potter",
+    type: "Web Development",
     description:
         "Harry Potter trading card game is a game that allows you to trade cards with other players.",
-    image: "/images/projects/harrypotter.png",
-    date: "Jan 2023 - May 2023",
-    skills: ["HTML", "CSS", "JavaScript", "Node.js", "Express", "Prisma"],
-    website: false,
-    github: true,
-    websiteurl: null,
-    githuburl: "https://github.com/miicolas/CDI-HarryPotter",
+    startDate: new Date("2023-01"),
+    endDate: new Date("2023-06"),
+    gitHubLink: "https://github.com/miicolas/CDI-HarryPotter",
   },
   {
     name: "Converter Money",
