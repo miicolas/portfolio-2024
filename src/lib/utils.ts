@@ -143,7 +143,7 @@ export const sideProjects = [
         type: "Web Development",
         description:
         "Pokédex is a website that allows you to discover the pokémons and to see their stats and their abilities. It's a project that I made with the help of the Pokémon API and the Tailwind CSS.",
-        startDate: new Date("2023-12"),
+        startDate: new Date("2024-12"),
         endDate: new Date("2024-12"),
         gitHubLink: "https://github.com/miicolas/pokedex",
         liveLink: "https://pokedex.nicolas-becharat.com/",
