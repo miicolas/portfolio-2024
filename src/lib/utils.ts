@@ -1,238 +1,240 @@
-import {type ClassValue, clsx} from "clsx";
-import {twMerge} from "tailwind-merge";
+import { type ClassValue, clsx } from "clsx";
+import { twMerge } from "tailwind-merge";
 import prisma from "@/lib/prisma";
 
 export function cn(...inputs: ClassValue[]) {
-    return twMerge(clsx(inputs));
+  return twMerge(clsx(inputs));
 }
 
-export const {workExperiences} = {
-    workExperiences: [
-        {
-            image: "/images/celest.webp",
-            name_experience: "ABR CELEST",
-            title: "Creative Designer",
-            startDate: new Date("2024-02"),
-            endDate: null,
-            description:
-                "I'm responsible for the design of social media posts and for the creation in the association ABR CELEST. I had the chance to work with clients and to understand their needs and to create a design that would meet the needs of the clients.",
-        },
-        {
-            image: "/images/404_devinci.webp",
-            name_experience: "404 Devinci",
-            title: "President",
-            startDate: new Date("2024-06"),
-            endDate: null,
-            description:
-                "President of the association 404 Devinci which is an association that aims to help to learn web development and to learn web design by creating websites and web applications. We also work for the Pole Leonard de Vinci and the administration of the association.",
-        },
-    ],
+export const { workExperiences } = {
+  workExperiences: [
+    {
+      image: "/images/celest.webp",
+      name_experience: "ABR CELEST",
+      title: "Creative Designer",
+      startDate: new Date("2024-02"),
+      endDate: null,
+      description:
+        "I'm responsible for the design of social media posts and for the creation in the association ABR CELEST. I had the chance to work with clients and to understand their needs and to create a design that would meet the needs of the clients.",
+    },
+    {
+      image: "/images/404_devinci.webp",
+      name_experience: "404 Devinci",
+      title: "President",
+      startDate: new Date("2024-06"),
+      endDate: null,
+      description:
+        "President of the association 404 Devinci which is an association that aims to help to learn web development and to learn web design by creating websites and web applications. We also work for the Pole Leonard de Vinci and the administration of the association.",
+    },
+  ],
 };
 
-export const {educationExperiences} = {
-    educationExperiences: [
-        {
-            image: "/images/iim.webp",
-            name_experience: "IIM Digital School",
-            title: "Bachelor Project Management in Web Developement",
-            startDate: new Date("2023-09"),
-            endDate: null,
-        },
-        {
-            image: "/images/lbs.webp",
-            name_experience: "Le Bon Sauveur",
-            title: "Baccalaureat in Computer Science x Mathematics",
-            startDate: new Date("2008-09"),
-            endDate: new Date("2023-07"),
-        },
-    ],
+export const { educationExperiences } = {
+  educationExperiences: [
+    {
+      image: "/images/iim.webp",
+      name_experience: "IIM Digital School",
+      title: "Bachelor Project Management in Web Developement",
+      startDate: new Date("2023-09"),
+      endDate: null,
+    },
+    {
+      image: "/images/lbs.webp",
+      name_experience: "Le Bon Sauveur",
+      title: "Baccalaureat in Computer Science x Mathematics",
+      startDate: new Date("2008-09"),
+      endDate: new Date("2023-07"),
+    },
+  ],
 };
 
 export const skills = [
-    {
-        name: "React",
-    },
-    {
-        name: "Svelte",
-    },
-    {
-        name: "Next.js",
-    },
-    {
-        name: "TypeScript",
-    },
-    {
-        name: "Tailwind CSS",
-    },
-    {
-        name: "SASS",
-    },
-    {
-        name: "Node.js",
-    },
-    {
-        name: "Express",
-    },
-    {
-        name: "Three.js",
-    },
-    {
-        name: "Symfony",
-    },
-    {
-        name: "Python",
-    },
-    {
-        name: "Supabase",
-    },
-    {
-        name: "Prisma",
-    },
-    {
-        name: "Figma",
-    },
-    {
-        name: "Docker",
-    },
-
+  {
+    name: "React",
+  },
+  {
+    name: "Svelte",
+  },
+  {
+    name: "Next.js",
+  },
+  {
+    name: "TypeScript",
+  },
+  {
+    name: "Tailwind CSS",
+  },
+  {
+    name: "SASS",
+  },
+  {
+    name: "Node.js",
+  },
+  {
+    name: "Express",
+  },
+  {
+    name: "Three.js",
+  },
+  {
+    name: "Symfony",
+  },
+  {
+    name: "Python",
+  },
+  {
+    name: "Supabase",
+  },
+  {
+    name: "Prisma",
+  },
+  {
+    name: "Figma",
+  },
+  {
+    name: "Docker",
+  },
 ];
 
 export const projects = [
-    {
-        name: "Learn404",
-        description: "Learn404 is a website that helps to learn web development. ",
-        image: "/images/projects/learn404.png",
-        date: "Jan 2024 - Present",
-        skills: [
-            "React",
-            "Next.js",
-            "TypeScript",
-            "Tailwind CSS",
-            "Prisma",
-            "Figma",
-        ],
-        website: false,
-        github: true,
-        websiteurl: null,
-        githuburl: "https://github.com/learn404/Learn404",
-    },
-    {
-        name: "Advent Calendar",
-        description: "Le calendrier de l'avent de la 404 Devinci qui permet de découvrir chaque jour une nouvelle surprise et de participer à une compétition dans l'université",
-        image: "/images/projects/404-cova.png",
-        date: "Nov 2024 - Dec 2024",
-        skills: [
-            "React",
-            "Tailwind CSS",
-            "Node.js",
-            "Express",
-            "Redis",
-            "Figma",
-        ],
-        website: true,
-        github: true,
-        websiteurl: 'https://celest.404devinci.fr/',
-        githuburl: 'https://github.com/La-404-Devinci/advent-daily-frontend',
-    },
-
+  {
+    name: "Learn404",
+    description: "Learn404 is a website that helps to learn web development. ",
+    image: "/images/projects/learn404.png",
+    date: "Jan 2024 - Present",
+    skills: [
+      "React",
+      "Next.js",
+      "TypeScript",
+      "Tailwind CSS",
+      "Prisma",
+      "Figma",
+    ],
+    website: false,
+    github: true,
+    websiteurl: null,
+    githuburl: "https://github.com/learn404/Learn404",
+  },
+  {
+    name: "Advent Calendar",
+    description:
+      "Le calendrier de l'avent de la 404 Devinci qui permet de découvrir chaque jour une nouvelle surprise et de participer à une compétition dans l'université",
+    image: "/images/projects/404-cova.png",
+    date: "Nov 2024 - Dec 2024",
+    skills: ["React", "Tailwind CSS", "Node.js", "Express", "Redis", "Figma"],
+    website: true,
+    github: true,
+    websiteurl: "https://celest.404devinci.fr/",
+    githuburl: "https://github.com/La-404-Devinci/advent-daily-frontend",
+  },
 ];
 
 export const sideProjects = [
-    {
-        name: "Pokédex",
-        type: "Web Development",
-        description:
-        "Pokédex is a website that allows you to discover the pokémons and to see their stats and their abilities. It's a project that I made with the help of the Pokémon API and the Tailwind CSS.",
-        startDate: new Date("2024-12"),
-        endDate: new Date("2024-12"),
-        gitHubLink: "https://github.com/miicolas/pokedex",
-        liveLink: "https://pokedex.nicolas-becharat.com/",
-    },
-    {
-        name: "Harry Potter",
-        type: "Web Development",
-        description:
-            "Harry Potter trading card game is a game that allows you to trade cards with other players.",
-        startDate: new Date("2023-01"),
-        endDate: new Date("2023-06"),
-        gitHubLink: "https://github.com/miicolas/CDI-HarryPotter",
-    },
-    {
-        name: "Converter Money",
-        type: "Web Development",
-        description:
-            "Converter Money is a website that allows you to convert money from one currency to another. It's a project that Eric and I made with JavaScript, HTML, and Tailwind CSS.",
-        startDate: new Date("2024-09"),
-        endDate: new Date("2024-09"),
-        liveLink: "https://converter-money.nicolas-becharat.com/",
-        gitHubLink: "https://github.com/miicolas/converter-money",
-    },
-    {
-        name: "npmBytes",
-        type: "Web Development",
-        description:
-            "npmBytes is a plateform where you can find articles about web developement, design, and more. It's a project that I made to help me to learn more about web developement and to understand the basics of web developement with Astro",
-        startDate: new Date("2023-03"),
-        endDate: new Date("2023-06"),
-        gitHubLink: "https://github.com/miicolas/npmBytes",
-    },
-    {
-        name: "IOT Project",
-        type: "Web Development",
-        description:
-            "This project is a discovery of the IOT world and to understand how to use the IoT devices and the sensors to create a project that can connect with a api and interact with the website",
-        startDate: new Date("2024-04"),
-        endDate: new Date("2024-04"),
-        gitHubLink: "https://github.com/miicolas/Data-IOTB1",
-    },
-    {
-        name: "Twitter clone",
-        type: "Web Development",
-        description:
-            "The goal of the project is to create a clone of X, a social media platform with the help of the PHP and the SQL",
-        startDate: new Date("2024-03"),
-        endDate: new Date("2024-03"),
-        gitHubLink: "https://github.com/miicolas/php-sql-B1",
-    },
-    {
-        name: "Algorithmic Javascript",
-        type: "Web Development",
-        description:
-            "This project is a discovery of the algorithmic world and to understand how to use the algorithm with the help of the Javascript language",
-        startDate: new Date("2023-10"),
-        endDate: new Date("2023-10"),
-        gitHubLink: "https://github.com/miicolas/AlgorithmieJS-IIM-B1",
-    },
+  {
+    name: "Netflex",
+    type: "Web Development",
+    description:
+      "Netflex is an innovative platform that allows users to create a wishlist of desired movies. Users can search for movies, add them to their wishlist, and schedule downloads directly to their NAS for simplified and centralized access.",
+    startDate: new Date("2024-12"),
+    endDate: new Date("2024-12"),
+    gitHubLink: "https://github.com/miicolas/netlfex",
+    liveLink: "https://netlfex.nicolas-becharat.com/",
+  },
+  {
+    name: "Pokédex",
+    type: "Web Development",
+    description:
+      "Pokédex is a website that allows you to discover the pokémons and to see their stats and their abilities. It's a project that I made with the help of the Pokémon API and the Tailwind CSS.",
+    startDate: new Date("2024-12"),
+    endDate: new Date("2024-12"),
+    gitHubLink: "https://github.com/miicolas/pokedex",
+    liveLink: "https://pokedex.nicolas-becharat.com/",
+  },
+  {
+    name: "Harry Potter",
+    type: "Web Development",
+    description:
+      "Harry Potter trading card game is a game that allows you to trade cards with other players.",
+    startDate: new Date("2023-01"),
+    endDate: new Date("2023-06"),
+    gitHubLink: "https://github.com/miicolas/CDI-HarryPotter",
+  },
+  {
+    name: "Converter Money",
+    type: "Web Development",
+    description:
+      "Converter Money is a website that allows you to convert money from one currency to another. It's a project that Eric and I made with JavaScript, HTML, and Tailwind CSS.",
+    startDate: new Date("2024-09"),
+    endDate: new Date("2024-09"),
+    liveLink: "https://converter-money.nicolas-becharat.com/",
+    gitHubLink: "https://github.com/miicolas/converter-money",
+  },
+  {
+    name: "npmBytes",
+    type: "Web Development",
+    description:
+      "npmBytes is a plateform where you can find articles about web developement, design, and more. It's a project that I made to help me to learn more about web developement and to understand the basics of web developement with Astro",
+    startDate: new Date("2023-03"),
+    endDate: new Date("2023-06"),
+    gitHubLink: "https://github.com/miicolas/npmBytes",
+  },
+  {
+    name: "IOT Project",
+    type: "Web Development",
+    description:
+      "This project is a discovery of the IOT world and to understand how to use the IoT devices and the sensors to create a project that can connect with a api and interact with the website",
+    startDate: new Date("2024-04"),
+    endDate: new Date("2024-04"),
+    gitHubLink: "https://github.com/miicolas/Data-IOTB1",
+  },
+  {
+    name: "Twitter clone",
+    type: "Web Development",
+    description:
+      "The goal of the project is to create a clone of X, a social media platform with the help of the PHP and the SQL",
+    startDate: new Date("2024-03"),
+    endDate: new Date("2024-03"),
+    gitHubLink: "https://github.com/miicolas/php-sql-B1",
+  },
+  {
+    name: "Algorithmic Javascript",
+    type: "Web Development",
+    description:
+      "This project is a discovery of the algorithmic world and to understand how to use the algorithm with the help of the Javascript language",
+    startDate: new Date("2023-10"),
+    endDate: new Date("2023-10"),
+    gitHubLink: "https://github.com/miicolas/AlgorithmieJS-IIM-B1",
+  },
 
-    {
-        name: "Ecoswing",
-        type: "Hackathon - Web Development",
-        description:
-            "Ecoswing is a solution for the problem of the environment which offers eco-responsible turf for golf to reduce water consumption and to improve the quality of the water.",
-        startDate: new Date("2024-03"),
-        endDate: new Date("2024-06"),
-        gitHubLink: "https://github.com/miicolas/ecoswing",
-        apiLink: "https://github.com/miicolas/ecoswing-api",
-    },
+  {
+    name: "Ecoswing",
+    type: "Hackathon - Web Development",
+    description:
+      "Ecoswing is a solution for the problem of the environment which offers eco-responsible turf for golf to reduce water consumption and to improve the quality of the water.",
+    startDate: new Date("2024-03"),
+    endDate: new Date("2024-06"),
+    gitHubLink: "https://github.com/miicolas/ecoswing",
+    apiLink: "https://github.com/miicolas/ecoswing-api",
+  },
 ];
 
 export const getPosts = async () => {
-    const posts = await prisma.posts.findMany({
-        where: {
-            isDraft: false,
-        },
-        orderBy: {
-            updatedAt: "desc",
-        },
-    });
-    return posts;
+  const posts = await prisma.posts.findMany({
+    where: {
+      isDraft: false,
+    },
+    orderBy: {
+      updatedAt: "desc",
+    },
+  });
+  return posts;
 };
 
 export const getPostsDraft = async () => {
-    const posts = await prisma.posts.findMany({
-        where: {
-            isDraft: true,
-        },
-    });
-    return posts;
+  const posts = await prisma.posts.findMany({
+    where: {
+      isDraft: true,
+    },
+  });
+  return posts;
 };
